@@ -18,14 +18,14 @@
         <p>Enjoy your journey through the literay landscape of my favourite reads.</p>
         <p> Click on a book to find out more about it.</p>
         <ul id="book-list">
-            <li v-for="book in booksData">
+            <li v-for="manga in mangasData">
                 <!-- thumbnail to be added by students, v-bind -->
                 <h3>Title: 
-                    <a href="#book" @click= "getBook(book.title)">
-                    {{book.title}}
+                    <a href="#manga" @click= "getManga(manga.title)">
+                    {{manga.title}}
                 </a>
                 </h3>
-                <h4>Published: {{book.published_date}}</h4>
+                <h4>Published: {{manga.published_date}}</h4>
             </li>
         </ul>
 
@@ -33,7 +33,7 @@
     <div class="col-span-full" id="bookInfoCon"></div>
     <div v-if="error">{{error}}</div>
     <div v-if="!error" id="book">
-        <p>Author: {{authorName}}</p>
+        <p>Mangaka: {{mangakaName}}</p>
         <p>Number of pages: {{numberOfPages}}</p>
         <p>Rating: {{ratingsAverage}}</p>
         <p>First Sentence: {{firstSentence}}</p>
