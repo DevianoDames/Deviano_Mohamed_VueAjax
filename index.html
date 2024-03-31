@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
-    <title>Book Store API</title>
+    <title>Manga Store API</title>
     <link href="https://fonts.googleapis.com/css?family=Lato%7CRaleway" rel="stylesheet">
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <script type="module" src="js/main.js"></script>
 </head>
 
@@ -17,7 +17,7 @@
         <h2> My Favourite Books</h2>
         <p>Enjoy your journey through the literay landscape of my favourite reads.</p>
         <p> Click on a book to find out more about it.</p>
-        <ul id="book-list">
+        <ul id="manga-list">
             <li v-for="manga in mangasData">
                 <!-- thumbnail to be added by students, v-bind -->
                 <h3>Title: 
@@ -30,9 +30,9 @@
         </ul>
 
     </div>
-    <div class="col-span-full" id="bookInfoCon"></div>
+    <div class="col-span-full" id="mangaInfoCon"></div>
     <div v-if="error">{{error}}</div>
-    <div v-if="!error" id="book">
+    <div v-if="!error" id="manga">
         <p>Mangaka: {{mangakaName}}</p>
         <p>Number of pages: {{numberOfPages}}</p>
         <p>Rating: {{ratingsAverage}}</p>

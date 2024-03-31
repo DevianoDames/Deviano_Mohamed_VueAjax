@@ -1,54 +1,50 @@
-const mangaStore = Vue.createApp({
+const mangaApp = Vue.createApp({
     created() {
-        fetch('http://localhost:8888/AnimeManga/public/mangas')
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            this.mangasData = data;
-        })
-        .catch(error => {
-            console.log(error);
-            //let the user know in app, something has gone wrong 
-        })
+        // Fetch manga data from Lumen API
+        fetch('http://localhost:8888/Deviano_Mohamed_VueAjax/mangas')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                this.mangasData = data;
+            })
+            .catch(error => {
+                console.error('Error fetching manga data:', error);
+            });
     },
     data() {
         return {
             mangasData: [],
-            firstSentence:"",
-            ratingsAverage:"",
-            authorName:"",
-            numberOfPages: "",
-            error: ""
-        }
+            mangakaInfo: {},
+            isLoading: false,
+            error: ''
+        };
     },
     methods: {
-        getManga(whichManga){
-            console.log(whichManga);
-            let title = whichManga;
-            let convertedTilte = title.split(' ').join('+');
-            console.log(convertedTilte);
-            fetch(`https://openlibrary.org/search.json?q=${convertedTilte}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.docs[0]);
-                //shortcut to the data i want
-                const book = data.docs[0];
-                if(data.docs.length > 0) {
-                    this.error = false;
-                                        //condition ? trueExpression : falseExpression
-                    this.firstSentence = manga.first_sentence ? manga.first_sentence[0]: 'Not available';
-                    this.ratingsAverage = manga.ratings_average ? manga.ratings_average.toFixed(2): 'Not available';
-                    this.mangakaName = manga.mangaka_name? manga.mangaka_name[0] : 'Not available';
-                    this.numberOfPages = manga.number_of_pages_median ? manga.number_of_pages_median : 'Not available';
-                }else {
-                    this.error = "No Manga Was Found. Please Try Again";
+        getManga(title) {
+            this.isLoading = true;
+            setTimeout(() => {
+                const selectedManga = this.mangasData.find(manga => manga.title === title);
+                if (selectedManga) {
+                    this.mangakaInfo = {
+                        name: selectedManga.name,
+                        email: selectedManga.email,
+                        published_date: selectedManga.published_date,
+                        manga_image: selectedManga.manga_image
+                    };
+                    this.isLoading = false;
+
+                    // Optionally scroll to manga info section
+                    // const mangaInfoCon = document.querySelector('#mangaInfoCon');
+                    // if (mangaInfoCon) {
+                    //     mangaInfoCon.scrollIntoView({ behavior: 'smooth' });
+                    // }
+                } else {
+                    this.error = 'Manga not found. Please try again later.';
+                    this.isLoading = false;
                 }
-            })
-            .catch(error => {
-                console.log(error);
-                //Let the user know something went wrong in the app
-            })
+            }, 1000);
         }
     }
 });
-mangaStore.mount("#app");
+
+mangaApp.mount('#app');
