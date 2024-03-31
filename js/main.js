@@ -1,6 +1,6 @@
 const mangaStore = Vue.createApp({
     created() {
-        fetch('http://localhost:8888/bookstore-api/public/books')
+        fetch('http://localhost:8888/AnimeManga/public/mangas')
         .then(res => res.json())
         .then(data =>{
             console.log(data)
