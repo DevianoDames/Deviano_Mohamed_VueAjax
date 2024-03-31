@@ -1,7 +1,10 @@
+
 const mangaApp = Vue.createApp({
+
+
     created() {
         // Fetch manga data from Lumen API
-        fetch('http://localhost:8888/Deviano_Mohamed_VueAjax/mangas')
+        fetch('http://localhost:8888/AnimeManga-api/public/mangas/')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -20,31 +23,26 @@ const mangaApp = Vue.createApp({
         };
     },
     methods: {
-        getManga(title) {
-            this.isLoading = true;
-            setTimeout(() => {
-                const selectedManga = this.mangasData.find(manga => manga.title === title);
-                if (selectedManga) {
-                    this.mangakaInfo = {
-                        name: selectedManga.name,
-                        email: selectedManga.email,
-                        published_date: selectedManga.published_date,
-                        manga_image: selectedManga.manga_image
-                    };
-                    this.isLoading = false;
-
-                    // Optionally scroll to manga info section
-                    // const mangaInfoCon = document.querySelector('#mangaInfoCon');
-                    // if (mangaInfoCon) {
-                    //     mangaInfoCon.scrollIntoView({ behavior: 'smooth' });
-                    // }
-                } else {
-                    this.error = 'Manga not found. Please try again later.';
-                    this.isLoading = false;
-                }
-            }, 1000);
+        getManga(passedData){
+            // we are declaring the passed data as passedData
+            console.log(passedData);
+            fetch(`http://localhost:8888/AnimeManga-api/public/mangas/${passedData}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                //shortcut to the data i want
+                const manga = data;
+                    this.error = false;
+                                        //condition ? trueExpression : falseExpression
+                    this.mangakaName = manga.name;
+ 
+            })
+            .catch(error => {
+                console.log(error);
+                //Let the user know something went wrong in the app
+            })
         }
     }
 });
-
+ 
 mangaApp.mount('#app');

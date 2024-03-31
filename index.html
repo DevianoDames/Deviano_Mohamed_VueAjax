@@ -10,9 +10,12 @@
     <script defer src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <script type="module" src="js/main.js"></script>
 </head>
-
+ 
 <body>
+ 
     <div class="grid-con" id="app">
+            
+ 
     <div class="col-span-full">
         <h2> My Favourite Books</h2>
         <p>Enjoy your journey through the literay landscape of my favourite reads.</p>
@@ -20,15 +23,16 @@
         <ul id="manga-list">
             <li v-for="manga in mangasData">
                 <!-- thumbnail to be added by students, v-bind -->
+                <img :src="`images/${manga.manga_image}`" />
                 <h3>Title: 
-                    <a href="#manga" @click= "getManga(manga.title)">
+                    <a href="#manga" @click= "getManga(manga.id)">
                     {{manga.title}}
                 </a>
                 </h3>
                 <h4>Published: {{manga.published_date}}</h4>
             </li>
         </ul>
-
+ 
     </div>
     <div class="col-span-full" id="mangaInfoCon"></div>
     <div v-if="error">{{error}}</div>
@@ -39,5 +43,6 @@
         <p>First Sentence: {{firstSentence}}</p>
     </div>
     </div>
+ 
 </body>
 </html>
