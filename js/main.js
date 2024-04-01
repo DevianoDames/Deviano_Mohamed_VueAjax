@@ -6,7 +6,7 @@ components:{
 },
     created() {
         // Fetch manga data from Lumen API
-        fetch('http://localhost:8888/AnimeManga-api/public/mangas/')
+        fetch('http://localhost:/AnimeManga-api/public/mangas/')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -36,7 +36,7 @@ components:{
         getManga(passedData){
             // we are declaring the passed data as passedData
             console.log(passedData);
-            fetch(`http://localhost:8888/AnimeManga-api/public/mangas/${passedData}`)
+            fetch(`http://localhost:/AnimeManga-api/public/mangas/${passedData}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

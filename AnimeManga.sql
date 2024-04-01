@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 01, 2024 at 03:04 AM
+-- Generation Time: Apr 01, 2024 at 04:43 AM
 -- Server version: 5.7.39
 -- PHP Version: 7.4.33
 
@@ -40,7 +40,18 @@ CREATE TABLE `mangakas` (
 --
 
 INSERT INTO `mangakas` (`id`, `name`, `email`, `created_at`, `updated_at`) VALUES
-(1, 'Masashi Kishimoto', 'Masashi.Kishimoto@live.com', '2024-03-31 18:42:13', '2024-03-31 18:42:13');
+(1, 'Masashi Kishimoto', 'Masashi.Kishimoto@live.com', '2024-03-31 18:42:13', '2024-03-31 18:42:13'),
+(2, 'Masashi Kishimoto', 'Masashi.Kishimoto@live.com', '2024-04-01 03:42:05', '2024-04-01 03:42:05'),
+(3, 'Masashi Kishimoto', 'Masashi.Kishimoto@live.com', '2024-04-01 03:45:08', '2024-04-01 03:45:08'),
+(4, 'Masashi Kishimoto', 'Masashi.Kishimoto@live.com', '2024-04-01 04:10:03', '2024-04-01 04:10:03'),
+(5, 'Eiichiro Oda', 'eiichiro.oda@live.com', '2024-04-01 04:14:31', '2024-04-01 04:14:31'),
+(6, 'Eiichiro Oda', 'eiichiro.oda@live.com', '2024-04-01 04:16:03', '2024-04-01 04:16:03'),
+(7, 'Eiichiro Oda', 'eiichiro.oda@live.com', '2024-04-01 04:17:29', '2024-04-01 04:17:29'),
+(8, 'Eiichiro Oda', 'eiichiro.oda@live.com', '2024-04-01 04:18:29', '2024-04-01 04:18:29'),
+(9, 'Tite Kubo', 'tite.kubo@outlook.com', '2024-04-01 04:26:47', '2024-04-01 04:26:47'),
+(10, 'Tite Kubo', 'tite.kubo@outlook.com', '2024-04-01 04:27:27', '2024-04-01 04:27:27'),
+(11, 'Tite Kubo', 'tite.kubo@outlook.com', '2024-04-01 04:28:00', '2024-04-01 04:28:00'),
+(12, 'Tite Kubo', 'tite.kubo@outlook.com', '2024-04-01 04:28:23', '2024-04-01 04:28:23');
 
 -- --------------------------------------------------------
 
@@ -101,7 +112,7 @@ ALTER TABLE `mangas`
 -- AUTO_INCREMENT for table `mangakas`
 --
 ALTER TABLE `mangakas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `mangas`

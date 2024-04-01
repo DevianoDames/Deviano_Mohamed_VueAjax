@@ -1,16 +1,14 @@
 .slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition: opacity .5s ease;
-
+    transition: opacity .5s ease;
 }
 
-#mangaInfoCon{
-    animation: bg-scroll 15s ease infinite;
+#mangaInfoCon {
     width: 100vw;
-    height:100vh;
+    height: 100vh;
     position: fixed;
-    left:0px;
-    top:0px;
+    left: 0;
+    top: 0;
     background-color: rgba(141, 141, 141, 0.499);
     backdrop-filter: blur(5px);
     display: flex;
@@ -19,30 +17,89 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    &:after{
-        content:'';
-        backdrop-filter:blur(10px);
-        height:100%;
-        width:100%;
-        position:absolute;
+
+    &:after {
+        content: '';
+        backdrop-filter: blur(10px);
+        height: 100%;
+        width: 100%;
+        position: absolute;
         z-index: -1;
     }
-    #manga{
+
+    #manga {
         background-color: rgba(255, 255, 255, 0.397);
-        padding:20px 60px;
+        padding: 20px 60px;
         border-radius: 10px;
     }
 }
 
-@keyframes bg-scroll{
-    to{
+@keyframes bg-scroll {
+    to {
         background-position: bottom center;
     }
 }
 
+#manga-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -10px; // Adjust this value as needed to manage spacing between images
+
+    li {
+        flex-basis: calc(25% - 20px); // Adjust the 20px as needed based on your margin
+        margin: 10px; // This creates space around each item
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #manga-list li {
+        flex-basis: calc(50% - 20px); // Display 2 images per row on smaller screens
+    }
+}
+
+@media (max-width: 480px) {
+    #manga-list li {
+        flex-basis: 100%; // Display 1 image per row on very small screens
+    }
+}
+
+#closeLightboxBtn {
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #E63946; // A bright red for visibility, matching the "crimson" theme
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+
+    &:hover {
+        background-color: darken(#E63946, 10%); // Darkens the button color on hover
+        transform: translateY(-2px); // Slightly raises the button
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.5); // Adds a focus outline for accessibility
+    }
+}
+
+
+
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  filter:blur(5px);
+    filter: blur(5px);
 }
 
 h2 {
@@ -67,7 +124,6 @@ p {
     list-style-type: none;
     padding: 0;
     font-size: 18px;
-    // margin-top: 40px;
 }
 
 #book-list li {

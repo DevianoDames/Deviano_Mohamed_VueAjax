@@ -31,7 +31,7 @@
         <transition name="slide-fade">
             <div v-if="lightboxOpen" class="col-span-full" id="mangaInfoCon" :style="`background-image:url(images/${mangakaImage})`">
                 <div id="manga">
-                    <h2 @click="closeLightbox()">Close Lightbox</h2>
+                    <button id="closeLightboxBtn" @click="closeLightbox()">Close Lightbox</button>
                     <p>Mangaka: {{mangakaName}}</p>
                     <p>Published: {{mangakaPublish}}</p>
                     <p>Summary: {{mangakaSummary}}</p>
