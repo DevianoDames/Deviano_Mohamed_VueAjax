@@ -1,7 +1,9 @@
+import HeaderComp from '../js/components/MyHeader.js'
 
 const mangaApp = Vue.createApp({
-
-
+components:{
+    headerdom: HeaderComp
+},
     created() {
         // Fetch manga data from Lumen API
         fetch('http://localhost:8888/AnimeManga-api/public/mangas/')
@@ -18,11 +20,19 @@ const mangaApp = Vue.createApp({
         return {
             mangasData: [],
             mangakaInfo: {},
+            mangakaName: null,
             isLoading: false,
-            error: ''
+            error: '',
+            lightboxOpen:false,
         };
     },
     methods: {
+        openLightbox(){
+            this.lightboxOpen=true;
+        },
+        closeLightbox(){
+            this.lightboxOpen=false;
+        },
         getManga(passedData){
             // we are declaring the passed data as passedData
             console.log(passedData);
@@ -31,11 +41,13 @@ const mangaApp = Vue.createApp({
             .then(data => {
                 console.log(data);
                 //shortcut to the data i want
-                const manga = data;
-                    this.error = false;
-                                        //condition ? trueExpression : falseExpression
-                    this.mangakaName = manga.name;
- 
+                const manga = data[0];
+                    // this.error = false;
+                    this.mangakaName = manga.title;
+                    this.mangakaPublish = manga.published_date;
+                    this.mangakaSummary = manga.summary;
+                    this.mangakaImage = manga.manga_image;
+
             })
             .catch(error => {
                 console.log(error);
@@ -44,5 +56,5 @@ const mangaApp = Vue.createApp({
         }
     }
 });
- 
+
 mangaApp.mount('#app');
