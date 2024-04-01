@@ -10,12 +10,14 @@
     <script defer src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <script type="module" src="js/main.js"></script>
 </head>
- 
+
 <body>
- 
+
+
     <div class="grid-con" id="app">
-            
- 
+
+            <headerdom></headerdom>
+
     <div class="col-span-full">
         <h2> My Favourite Books</h2>
         <p>Enjoy your journey through the literay landscape of my favourite reads.</p>
@@ -23,26 +25,25 @@
         <ul id="manga-list">
             <li v-for="manga in mangasData">
                 <!-- thumbnail to be added by students, v-bind -->
+                <a href="#manga" @click= "getManga(manga.id); openLightbox();">
                 <img :src="`images/${manga.manga_image}`" />
-                <h3>Title: 
-                    <a href="#manga" @click= "getManga(manga.id)">
-                    {{manga.title}}
                 </a>
-                </h3>
-                <h4>Published: {{manga.published_date}}</h4>
             </li>
         </ul>
- 
+
     </div>
-    <div class="col-span-full" id="mangaInfoCon"></div>
-    <div v-if="error">{{error}}</div>
-    <div v-if="!error" id="manga">
+    <transition name="slide-fade">
+    <div v-if="lightboxOpen" class="col-span-full" id="mangaInfoCon" :style="`background-image:url(images/${mangakaImage})`">
+
+    <div id="manga">
+        <h2 @click="closeLightbox()">Close Lightbox</h2>
         <p>Mangaka: {{mangakaName}}</p>
-        <p>Number of pages: {{numberOfPages}}</p>
-        <p>Rating: {{ratingsAverage}}</p>
-        <p>First Sentence: {{firstSentence}}</p>
+        <p>Published: {{mangakaPublish}}</p>
+        <p>Summar: {{mangakaSummary}}</p>
     </div>
+
     </div>
- 
+    </transition>
+    
 </body>
 </html>
