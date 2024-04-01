@@ -18,27 +18,6 @@ Before you begin, ensure you have met the following requirements:
 - You have installed the latest version of [Node.js and npm](https://nodejs.org/).
 - You have a basic understanding of JavaScript and Vue.js.
 
-## Installation
-
-To install Manga Store API, follow these steps:
-
-1. Clone the repository:
-   ```
-   git clone https://yourprojectrepository.com
-   ```
-2. Navigate to the project directory:
-   ```
-   cd manga-store-api
-   ```
-3. Install the necessary dependencies:
-   ```
-   npm install
-   ```
-4. Run the development server:
-   ```
-   npm run serve
-   ```
-
 ## Usage
 
 After installation, you can use the Manga Store API by:
