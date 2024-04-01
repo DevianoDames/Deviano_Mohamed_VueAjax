@@ -1,10 +1,16 @@
+/* Transitions for slide-fade animations */
 .slide-fade-enter-active,
 .slide-fade-leave-active {
     transition: opacity .5s ease;
 }
 
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    filter: blur(5px);
+}
+
+/* Manga info container styling */
 #mangaInfoCon {
-    width: 100vw;
     height: 100vh;
     position: fixed;
     left: 0;
@@ -28,27 +34,33 @@
     }
 
     #manga {
+        font-size: auto;
         background-color: rgba(255, 255, 255, 0.397);
         padding: 20px 60px;
+        margin: 5rem;
         border-radius: 10px;
+        box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1), 0 4rem 8rem rgba(0, 0, 0, 0.1);
     }
 }
 
+/* Background scroll animation */
 @keyframes bg-scroll {
     to {
         background-position: bottom center;
     }
 }
 
+/* Manga list styling */
 #manga-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: -10px; // Adjust this value as needed to manage spacing between images
+    margin: -10px;
+    border-radius: 10px;
 
     li {
-        flex-basis: calc(25% - 20px); // Adjust the 20px as needed based on your margin
-        margin: 10px; // This creates space around each item
+        flex-basis: calc(25% - 20px);
+        margin: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -57,51 +69,49 @@
             max-width: 100%;
             height: auto;
             display: block;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgb(0, 0, 0), 2px 4px 8px rgba(0, 0, 0, 0.1);
         }
     }
 }
 
+/* Responsive adjustments for manga list */
 @media (max-width: 768px) {
     #manga-list li {
-        flex-basis: calc(50% - 20px); // Display 2 images per row on smaller screens
+        flex-basis: calc(50% - 20px);
     }
 }
 
 @media (max-width: 480px) {
     #manga-list li {
-        flex-basis: 100%; // Display 1 image per row on very small screens
+        flex-basis: 100%;
     }
 }
 
+/* Close lightbox button styling */
 #closeLightboxBtn {
     padding: 8px 16px;
     font-size: 16px;
     font-weight: bold;
     color: #FFF;
-    background-color: #E63946; // A bright red for visibility, matching the "crimson" theme
+    background-color: #E63946;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 
     &:hover {
-        background-color: darken(#E63946, 10%); // Darkens the button color on hover
-        transform: translateY(-2px); // Slightly raises the button
+        background-color: darken(#E63946, 10%);
+        transform: translateY(-2px);
     }
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.5); // Adds a focus outline for accessibility
+        box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.5);
     }
 }
 
-
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-    filter: blur(5px);
-}
-
+/* Text elements styling */
 h2 {
     color: crimson;
     margin-top: 20px;
@@ -120,12 +130,13 @@ p {
     margin-bottom: 20px;
 }
 
+/* Book list styling */
 #book-list {
     list-style-type: none;
     padding: 0;
     font-size: 18px;
-}
 
-#book-list li {
-    margin-bottom: 30px;
+    li {
+        margin-bottom: 30px;
+    }
 }
