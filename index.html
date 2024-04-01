@@ -12,9 +12,7 @@
 </head>
 
 <body>
-
     <div class="grid-con" id="app">
-        <headerdom></headerdom>
         <div class="col-span-full">
             <h2> My Favourite Books</h2>
             <p>Enjoy your journey through the literary landscape of my favourite reads.</p>
@@ -30,11 +28,11 @@
         </div>
         <transition name="slide-fade">
             <div v-if="lightboxOpen" class="col-span-full" id="mangaInfoCon" :style="`background-image:url(images/${mangakaImage})`">
-                <div id="manga">
-                    <button id="closeLightboxBtn" @click="closeLightbox()">Close Lightbox</button>
+                <div id="manga"> 
                     <p>Mangaka: {{mangakaName}}</p>
                     <p>Published: {{mangakaPublish}}</p>
                     <p>Summary: {{mangakaSummary}}</p>
+                    <button id="closeLightboxBtn" @click="closeLightbox()">Close</button>
                 </div>
             </div>
         </transition>

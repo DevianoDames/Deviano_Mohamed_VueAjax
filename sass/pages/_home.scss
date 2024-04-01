@@ -1,7 +1,12 @@
 body {
 	font-family: "Lato", sans-serif;
 	padding: 20px;
-	font-size: 1rem; // Using rem for responsive font size
+	font-size: 1rem;
+	background-color: bisque;
+	background-image: url('/images/background-image.jpg'); // Ensure this path is correct
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 #app {
@@ -15,11 +20,84 @@ body {
 a {
 	color: crimson;
 	text-decoration: none;
-	transition: color 0.3s ease; // Smooth transition for color change
+	transition: color 0.3s ease;
 
 	&:hover,
 	&:focus {
-		color: darkred; // Darker shade on hover/focus for better interaction
-		text-decoration: underline; // Underline on hover/focus for clarity
+		color: darkred;
+		text-decoration: underline;
+	}
+}
+
+.col-span-full {
+	text-align: center;
+	padding: 2rem;
+
+	h2 {
+		font-family: 'Raleway', sans-serif;
+		font-size: 2.5rem;
+		color: #333;
+		margin-bottom: 1rem;
+		position: relative;
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translateX(-50%);
+			height: 3px;
+			width: 50%;
+			background-color: crimson;
+			border-radius: 1px;
+		}
+	}
+
+	p {
+		font-family: 'Lato', sans-serif;
+		color: #555;
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+
+		&:last-of-type {
+			font-weight: bold;
+			color: #333;
+		}
+	}
+}
+
+.featured-section {
+	position: relative;
+	color: white;
+	text-align: center;
+	padding: 100px 20px;
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	h1 {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.read-more-button {
+		padding: 10px 20px;
+		font-size: 1.25rem;
+		background-color: #e63946;
+		border: none;
+		border-radius: 5px;
+		color: white;
+		cursor: pointer;
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: darken(#e63946, 10%);
+		}
 	}
 }
