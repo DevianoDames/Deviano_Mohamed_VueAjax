@@ -1,6 +1,7 @@
 body {
 	font-family: "Lato", sans-serif;
 	padding: 20px;
+	font-size: 1rem; // Using rem for responsive font size
 }
 
 #app {
@@ -12,6 +13,13 @@ body {
 }
 
 a {
-	color:crimson;
+	color: crimson;
 	text-decoration: none;
+	transition: color 0.3s ease; // Smooth transition for color change
+
+	&:hover,
+	&:focus {
+		color: darkred; // Darker shade on hover/focus for better interaction
+		text-decoration: underline; // Underline on hover/focus for clarity
+	}
 }
